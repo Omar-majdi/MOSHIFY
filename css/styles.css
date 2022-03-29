@@ -15,11 +15,15 @@
   box-sizing: border-box;
 }
 
+/*-------------------------- Typography --------------------------------- */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
 html {
   font-size: 62.5%;
 }
 
-/*-------------------------- Typography --------------------------------- */
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 2.4rem;
@@ -46,6 +50,7 @@ h2 {
 
 h3 {
   font-size: 3rem;
+  font-weight: 500;
 }
 
 p {
@@ -137,7 +142,6 @@ a {
 .list {
   list-style: none;
   padding-left: 0;
-  color: var(--color-headings);
 }
 
 .list--inline .list__item {
@@ -148,6 +152,7 @@ a {
 .list--tick {
   list-style-image: url(../images/tick.svg);
   padding-left: 3rem;
+  color: var(--color-headings);
 }
 
 .list--tick .list__item {
@@ -415,6 +420,7 @@ a {
 /*------------------------- Media --------------------------------*/
 .media {
   display: flex;
+  margin-bottom: 4rem;
 }
 
 .media__title {
@@ -783,8 +789,30 @@ a {
   width: 100%;
 }
 
+/* This one is for haveing the images as you see, like they are not layed in the same coulomn but they are layed in a different way, every even child well have an order of 2 */
 @media screen and (min-width: 768px) {
   .feature:nth-of-type(even) .feature__content {
     order: 2;
+  }
+}
+
+/*--------------------------------------- Showcase Block ------------------------------*/
+.block-showcase__image > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    /* By this the width of the content determend by the width of the container not the width of the grid or the content */
+    grid-template-columns: 50% 50%;
+  }
+
+  .block-showcase__image {
+    justify-self: end;
+  }
+
+  .block-showcase__image > img {
+    width: auto;
+    max-width: 700px;
   }
 }
